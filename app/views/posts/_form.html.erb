@@ -1,0 +1,22 @@
+
+<div class='card full-width'>
+  <div class='w-form'>
+    <%= form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      <% end %>
+
+      <%= f.label :title, 'Post Title', class: 'form-field-label' %>
+      <%= f.text_field :title, placeholder: 'Enter title here...', class: 'form-field w-input' %>
+
+      <%= f.label :body, 'Post', class: 'form-field-label' %>
+      <%= f.text_area :body, class: 'form-field w-input' %>
+
+      <%= f.submit 'Submit', class: 'btn-primary w-button' %>
+    <% end %>
+  </div>
+</div>
