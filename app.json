@@ -1,0 +1,15 @@
+{
+  "name": "blog-app",
+  "scripts": {},
+  "env": {
+    "HEROKU_APP_NAME": {
+    "required": true
+    }
+  },
+  "formation": {},
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [],
+  "stack": "heroku-18"
+}
