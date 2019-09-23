@@ -1,16 +1,15 @@
 {
-  "addons": [
-
-  ],
-  "buildpacks": [
-
-  ],
-  "env": {
-  },
-  "formation": {
-  },
   "name": "blog-app",
-  "scripts": {
+  "scripts": {},
+  "env": {
+    "HEROKU_APP_NAME": {
+    "required": true
+    }
   },
+  "formation": {},
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [],
   "stack": "heroku-18"
 }
