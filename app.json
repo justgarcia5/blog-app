@@ -1,6 +1,5 @@
 {
-
-  "name": "blog-app",
+  "name": "just-blog-app",
   "scripts": {},
   "env": {
     "HEROKU_APP_NAME": {
