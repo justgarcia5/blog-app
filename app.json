@@ -2,7 +2,7 @@
   "name": "blog-app",
   "scripts": {},
   "env": {
-    "BLOG-APP": {
+    "HEROKU_APP_NAME": {
     "required": true
     }
   },
