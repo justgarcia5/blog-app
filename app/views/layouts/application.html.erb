@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>JustBlogIt</title>
+    <%= render "shared/rails_default" %>
+    <%= render "shared/shim" %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <%= render "shared/main" %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

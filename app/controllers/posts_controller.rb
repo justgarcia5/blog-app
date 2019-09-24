@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.order(posts: :desc)
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to root_path
