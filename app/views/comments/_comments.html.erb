@@ -1,0 +1,9 @@
+
+<br/>
+<h3>Comments</h3>
+<% @post.comments.each do |comment| %>
+  <div class="card card-body bg-light">
+    <p><%= comment.body %></p>
+    <p><%= comment.created_at %></p>
+  </div>
+<% end %>

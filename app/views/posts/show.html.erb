@@ -1,0 +1,12 @@
+<div class="post-card">
+  <div class="card card-body bg-light">
+    <h3 ><%= @post.title %></h3>
+    <p><%= @post.body %></p>
+    <hr />
+    <p><%= @post.created_at %></p>
+  </div>
+  <% if user_signed_in? %>
+    <%= render 'comments/form' %>
+  <% end %>
+  <%= render 'comments/comments' %>
+</div>

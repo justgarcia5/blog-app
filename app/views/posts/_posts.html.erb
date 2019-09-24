@@ -1,4 +1,3 @@
-
 <div class="post-card">
   <% @posts.each do |post| %>
     <div class="card card-body bg-light">
@@ -6,6 +5,9 @@
       <p><%= post.body %></p>
       <hr />
       <p><%= post.created_at %></p>
+      <div>
+        <%= link_to 'Read More...', post_path(post), :class => 'btn btn-secondary' %>
+      </div>
     </div>
   <% end %>
 </div>
