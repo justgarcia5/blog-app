@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     if @post.destroy
       flash[:notice] = "Note was successfully deleted"
       redirect_to root_path
+
     end
   end
 
