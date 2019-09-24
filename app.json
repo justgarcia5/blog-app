@@ -1,15 +1,14 @@
 {
-  "name": "blog-app",
-  "scripts": {},
-  "env": {
-    "HEROKU_APP_NAME": {
-    "required": true
-    }
+  "name":"just-blog-app",
+  "scripts":{
+    "postdeploy":"rake db:setup && bin/bootstrap"
   },
-  "formation": {},
-  "addons": [
-    "heroku-postgresql"
-  ],
-  "buildpacks": [],
-  "stack": "heroku-18"
+  "env":{
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    }
+  }
 }
