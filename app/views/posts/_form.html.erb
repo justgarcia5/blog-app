@@ -1,6 +1,6 @@
-
-<div>
+<div class='new-blog-form'>
   <%= form_for @post do |f| %>
+
     <% if @post.errors.any? %>
       <ul>
       <% @post.errors.full_messages.each do |msg| %>
@@ -9,12 +9,17 @@
       </ul>
     <% end %>
 
-    <%= f.label :title, 'Post Title' %>
-    <%= f.text_field :title, placeholder: 'Enter title here...', class: 'form-control' %>
+    <div class='form-group'>
+      <%= f.label :title, 'Post Title' %>
+      <%= f.text_field :title, placeholder: 'Enter title here...', class: 'form-control' %>
+    </div>
 
-    <%= f.label :body, 'Post' %>
-    <%= f.text_area :body, class: 'form-control' %>
 
-    <%= f.submit 'Submit', class: 'btn-primary w-button' %>
+    <div class='form-group'>
+      <%= f.label :body, 'Post' %>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
   <% end %>
 </div>
