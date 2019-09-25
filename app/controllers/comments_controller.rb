@@ -4,12 +4,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
-    if @comment.save
-      redirect_to post_path(@post)
-    else
-      flash[:alert] = "Error: Comment not saved"
-      redirect_to post_path(@post)
-    end
+    redirect_to post_path(@post)
   end
 
   private

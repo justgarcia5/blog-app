@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_210953) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.string "time_zone", default: "UTC"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_210953) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "time_zone", default: "UTC"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
