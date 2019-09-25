@@ -4,7 +4,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
-    redirect_to post_path(@post)
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = "You can only make two comments a day"
+      redirect_to post_path(@post)
+    end
   end
 
   private

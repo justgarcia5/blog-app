@@ -1,7 +1,6 @@
 <div style='width: 70%; margin: auto;'>
   <%= form_for([@post, @post.comments.build]) do |f| %>
-
-    <%= f.label :body, 'Comment:' %>
+    <%= f.label :body, 'New Comment:' %>
     <%= f.text_area :body, class: 'form-control' %>
     <br/>
     <%= f.submit 'Submit', class: "btn btn-primary" %>

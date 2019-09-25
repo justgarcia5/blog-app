@@ -1,9 +1,8 @@
-<div>
-  <br/>
+<div class="post-card">
   <h3>Comments</h3>
   <hr/>
   <% @post.comments.each do |comment| %>
-    <div class="card card-body bg-light">
+    <div class="card card-body">
       <p><%= comment.body %></p>
       <p><%= comment.created_at %></p>
     </div>
