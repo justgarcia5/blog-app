@@ -31,6 +31,7 @@ color: white;
   font-size: 70px;
   font-family: 'Bungee Inline', cursive;
   color: rgb(58, 56, 56);
+  text-align: center;
 }
 
 .wrapper {
@@ -77,4 +78,8 @@ color: white;
   justify-content: space-between;
   margin: auto;
   padding: 30px;
+}
+
+.comment-indicator {
+  text-align: right;
 }
