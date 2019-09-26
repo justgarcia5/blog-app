@@ -1,12 +1,13 @@
 <div class="post-card">
-  <div class="card card-body bg-light">
+  <div class="card card-body">
     <h3 ><%= @post.title %></h3>
     <p><%= @post.body %></p>
-    <hr />
-    <p><%= @post.created_at %></p>
+    <p><i style="color:gray;">Created on </i><%= @post.created_at.strftime("%b %d, %Y") %></p>
   </div>
   <% if user_signed_in? %>
     <%= render 'comments/form' %>
+  <% else %>
+    <p><%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to leave a comment!</p>
   <% end %>
   <%= render 'comments/comments' %>
 </div>
