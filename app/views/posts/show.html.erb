@@ -6,6 +6,8 @@
   </div>
   <% if user_signed_in? %>
     <%= render 'comments/form' %>
+  <% else %>
+    <p><%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to leave a comment!</p>
   <% end %>
   <%= render 'comments/comments' %>
 </div>
