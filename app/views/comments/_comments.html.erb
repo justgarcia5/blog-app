@@ -4,7 +4,7 @@
   <% @post.comments.each do |comment| %>
     <div class="card card-body">
       <p class="post-body" ><%= comment.body %></p>
-      <p class="post-body" ><%= comment.created_at.strftime("%b %d, %Y") unless comment.created_at.nil? %></p>
+      <p class="post-body" ><i style="color:gray;">Created at </i><%= comment.created_at.strftime("%b %d, %Y") unless comment.created_at.nil? %> <i style="color:gray;">by </i> <%= comment.username %></p>
     </div>
   <% end %>
 </div>

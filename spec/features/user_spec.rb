@@ -11,22 +11,24 @@ feature 'User can be created' do
   end
   scenario 'with attributes for ' do
     visit new_user_registration_path
+    fill_in 'Username', with: 'username'
     fill_in 'Email', with: 'email1@email.com'
     fill_in 'Password', with: '123456'
     fill_in 'Password confirmation', with: '123456'
     click_button 'Sign up'
     expect(page).to have_content('Blogs')
   end
-  feature 'Visitor edits a user' do
+  feature 'User edits a profile' do
     let(:user) { create_logged_in_user }
     background do
-      @user = User.create!(email: 'testa@testa.com', password: 'icecream')
-      @user2 = User.create!(email: 'testb@testa.com', password: 'icecream')
+      @user = User.create!(username: 'name', email: 'testa@testa.com', password: 'icecream')
+      @user2 = User.create!(username: 'name1', email: 'testb@testa.com', password: 'icecream')
     end
     scenario 'clicks edit user on header' do
       visit edit_user_registration_path(@user, user)
       expect(page).to have_content('Edit User')
       expect(@user.email).to eq('testa@testa.com')
+      expect(@user.username).to eq('name')
       expect(@user.password).to eq('icecream')
     end
     scenario 'change user name and email' do

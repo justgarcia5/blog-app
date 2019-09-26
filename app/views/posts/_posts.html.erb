@@ -3,7 +3,7 @@
     <div class="card card-body ">
       <h3 class="post-title"><%= post.title %></h3>
       <p class="post-body"><%= post.body %></p>
-      <p style="color:gray;"><i>Created on </i><%= post.created_at.strftime("%b %d, %Y") %></p>
+      <p class="post-body"><i style="color:gray;">Created on </i><%= post.created_at.strftime("%b %d, %Y") %></p>
       <div >
         <%= link_to 'Read More...', post_path(post), :class => 'btn btn-secondary' %>
       </div>
