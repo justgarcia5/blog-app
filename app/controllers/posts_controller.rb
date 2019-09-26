@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :destroy]
+  before_action :find_post, only: [:show]
 
   def index
     @posts = Post.order(posts: :desc)
@@ -19,17 +21,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def destroy
-    if @post.destroy
-      flash[:notice] = "Note was successfully deleted"
-      redirect_to root_path
-
-    end
-  end
-
+  def show; end
 
   private
 
@@ -40,9 +32,8 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find(params[:id])
     if @post.nil?
-      flash[:notice] = "Route does not exist. Please check your post route."
+      flash[:notice] = 'Route does not exist. Please check your post route.'
       redirect_to root_path
     end
   end
-
 end

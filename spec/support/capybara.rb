@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'capybara/rspec'
 
 Capybara.register_driver :chrome do |app|

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 require 'capybara/rspec'
 include RequestHelpers
@@ -17,10 +18,10 @@ feature 'User can be created' do
     expect(page).to have_content('Blogs')
   end
   feature 'Visitor edits a user' do
-    let(:user){ create_logged_in_user }
+    let(:user) { create_logged_in_user }
     background do
-      @user = User.create!(:email => 'testa@testa.com', :password => 'icecream')
-      @user2 = User.create!(:email => 'testb@testa.com', :password => 'icecream')
+      @user = User.create!(email: 'testa@testa.com', password: 'icecream')
+      @user2 = User.create!(email: 'testb@testa.com', password: 'icecream')
     end
     scenario 'clicks edit user on header' do
       visit edit_user_registration_path(@user, user)
@@ -40,7 +41,7 @@ feature 'User can be created' do
       fill_in 'Email', with: 'testa@testa.com'
       fill_in 'Password', with: 'icecream'
       click_button 'Update'
-      expect(page).to have_content("Email has already been taken")
+      expect(page).to have_content('Email has already been taken')
     end
   end
 end

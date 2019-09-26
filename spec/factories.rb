@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-
   factory :user do
     email 'email@email.com'
     password '123456'
@@ -15,5 +14,4 @@ FactoryBot.define do
   factory :comment do
     body 'This is the body'
   end
-
 end
