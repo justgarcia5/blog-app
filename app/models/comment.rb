@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   validates :body, presence: :true
-  validates_length_of :body, minimum: 5, maximum: 280
+  validates_length_of :body, minimum: 5, maximum: 1000
 
 
   validate :comment_limit, on: :create
