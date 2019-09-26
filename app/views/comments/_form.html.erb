@@ -1,6 +1,6 @@
 <div style='width: 70%; margin: auto;'>
   <%= form_for([@post, @post.comments.build]) do |f| %>
-    <%= f.label :body, 'New Comment:' %>
+    <%= f.label :body, 'New Comment:', class: 'comment-h3' %>
     <%= f.text_area :body, class: 'form-control' %>
     <%= f.hidden_field :username, :value => current_user.username  %>
     <br/>
