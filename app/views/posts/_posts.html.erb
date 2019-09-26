@@ -8,7 +8,7 @@
         <%= link_to 'Read More...', post_path(post), :class => 'btn btn-secondary' %>
       </div>
       <hr/>
-      <% if post.comments.all.length <= 1 %>
+      <% if post.comments.all.length == 1 %>
         <p class="comment-indicator"><%= post.comments.all.length %><i> comment</i></p>
       <% else %>
         <p class="comment-indicator"><%= post.comments.all.length %><i> comments</i></p>
