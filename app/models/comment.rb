@@ -12,8 +12,9 @@ class Comment < ApplicationRecord
   private
 
   def comment_limit
+    post_id
     if user.comments.today.count >= 2
-      errors.add(:base, "Can only comment twice a day")
+      errors.add(:base, "You can only comment on two blogs per day")
     end
   end
 

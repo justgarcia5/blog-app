@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      flash[:alert] = "You can only make two comments a day"
+      flash[:alert] = @comment.errors.full_messages.to_sentence
       redirect_to post_path(@post)
     end
   end
