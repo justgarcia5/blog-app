@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+      - image: circleci/postgres:10.3-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: postgres
+    steps:
+      - checkout
+
+      # Cache Restoration
+      - restore_cache:
+          keys:
+            - line-what-line-bundle-{{ checksum "Gemfile.lock" }}
+            - line-what-line-bundle-
+
+      # Update Dependencies
+      # - run: bundle install --path vendor/bundle
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.0.2
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          key: line-what-line-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # Setup script
+      - run:
+          name: Database Setup
+          command: |
+            bundle exec rake db:create
+      # Linting
+      # - run: bundle exec rubocop --parallel
+
+      # Run tests
+      - run: bundle exec rspec
+
+
+      - store_artifacts:
+          path: tmp/screenshot/s
